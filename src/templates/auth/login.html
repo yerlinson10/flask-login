@@ -125,10 +125,23 @@
 {% block body %}
 <div class="login-page">
     <div class="form">
-        <form class="login-form">
+        <form class="login-form" action='/login' method='POST'>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% endwith %}
             <input type="text" placeholder="username" name="username" />
             <input type="password" placeholder="password" name="password" />
-            <button>login</button>
+            <button type="submit">login</button>
         </form>
     </div>
 </div>
