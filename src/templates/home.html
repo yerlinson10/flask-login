@@ -1,5 +1,5 @@
 {% block title %}Home{% endblock %} 
 
-{% block body %} <h1>Bienvenido</h1> {% endblock %} 
-
-{% block customJs %} {% endblock %}
+{% block body %} <h1>Bienvenido, {{ current_user.username }}</h1> 
+    <a href="{{ url_for('logout') }}" class="btn btn-secondary">Cerrar sección</a>
+{% endblock %} 

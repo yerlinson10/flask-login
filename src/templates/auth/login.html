@@ -140,6 +140,7 @@
 
             {% endwith %}
             <input type="text" placeholder="username" name="username" />
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <input type="password" placeholder="password" name="password" />
             <button type="submit">login</button>
         </form>
