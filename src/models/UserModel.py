@@ -11,7 +11,6 @@ class userModel():
             row=cursor.fetchone()
             if row != None:
                 return User(row['id'], row['username'], User.check_password(row['password'], user.password) )
-
             else:
                 return None
         except Exception as ex:

@@ -37,8 +37,6 @@ def index():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        # print(request.form['username'])
-        # print(request.form['password'])
         
         user= User(0, request.form['username'], request.form['password'])
         logged_user= userModel.login(db, user)
@@ -53,8 +51,6 @@ def login():
         else:
             flash("User not found...")
             return render_template('auth/login.html')
-        
-        return render_template('auth/login.html')
     else:
         return render_template('auth/login.html')
 
